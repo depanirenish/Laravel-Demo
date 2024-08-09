@@ -10,11 +10,13 @@ jobs:
     steps:
       - name: Checkout the files
         uses: actions/checkout@v2
-        echo"R1"
-      - name: Deploy to Server 1
-        uses: easingthemes/ssh-deploy@main
+        
+      - name: Deploy to EC2
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+          HOST_DNS: ${{ secrets.HOST_DNS }}
+          USERNAME: ${{ secrets.USERNAME }}
+          TARGET_DIR: ${{ secrets.TARGET_DIR }}
+        run: |
+          echo "${EC2_SSH_KEY}" > deploy_key.pem
+          chmod 600 deploy_key.pem
