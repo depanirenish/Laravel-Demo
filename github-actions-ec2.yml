@@ -18,9 +18,5 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           TARGET_DIR: ${{ secrets.TARGET_DIR }}
         run: |
-          echo "${EC2_SSH_KEY}" > deploy_key.pem
-          chmod 600 deploy_key.pem
-          echo "Hello-2"
-          
-          
-            cd /var/www/Laravel-Demo
+          echo "Hello-3"
+          cd /var/www/Laravel-Demo
