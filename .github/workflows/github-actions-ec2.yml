@@ -26,7 +26,7 @@ jobs:
           
           echo "$REMOTE_USER"
 
-          echo "SSH_PRIVATE_KEY"
+          echo "$SSH_PRIVATE_KEY"
           
           echo "$SSH_PRIVATE_KEY" > deploy_key.pem
           chmod 600 deploy_key.pem
