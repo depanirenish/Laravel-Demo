@@ -27,7 +27,7 @@ jobs:
           sudo cat deploy_key.pem
           echo "Hello-9"
           
-          ssh -o StrictHostKeyChecking=no -i deploy_key.pem ${REMOTE_USER}@${REMOTE_HOST} ' 
+          ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY ${REMOTE_USER}@${REMOTE_HOST} ' 
             
             cd /var/www/Laravel-Demo
             git pull origin main
