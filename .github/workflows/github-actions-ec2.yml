@@ -13,20 +13,20 @@ jobs:
       - name: Deploy to Server 1
         uses: easingthemes/ssh-deploy@main
         env:
-          PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          HOSTNAME: ${{ secrets.HOST_DNS }}
-          USER_NAME: ${{ secrets.USERNAME }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
           
       - name: Run tests
         run: |
           echo "Hello-7"      
-          echo "$PRIVATE_KEY" > deploy_key.pem
+          echo "$SSH_PRIVATE_KEY" > deploy_key.pem
           chmod 600 deploy_key.pem
           echo "Hello-8"
           sudo cat deploy_key.pem
-         
+          echo "Hello-9"
           
-          ssh -o StrictHostKeyChecking=no -i deploy_key.pem ${USER_NAME}@{HOSTNAME} ' 
+          ssh -o StrictHostKeyChecking=no -i deploy_key.pem ${REMOTE_USER}@{REMOTE_HOST} ' 
             
             cd /var/www/Laravel-Demo
             git pull origin main
