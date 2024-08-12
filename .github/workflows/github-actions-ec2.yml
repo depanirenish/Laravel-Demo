@@ -23,9 +23,9 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > deploy_key.pem
           chmod 600 deploy_key.pem
           echo "H-8"
-          cat deploy_key.pem
+          sudo cat deploy_key.pem
 
-          ssh -i deploy_key.pem ${REMOTE_USER}@{REMOTE_HOST} ' 
+          ssh -o StrictHostKeyChecking=no -i deploy_key.pem $REMOTE_USER@REMOTE_HOST << ' 
             cd /var/www/Laravel-Demo
             git pull origin main
             composer install --no-dev --prefer-dist --optimize-autoloader
