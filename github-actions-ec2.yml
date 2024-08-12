@@ -39,7 +39,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           TARGET_DIR: ${{ secrets.TARGET_DIR }}
         run: |
-          echo "Hello-5"
+          echo "Hello-6"
          
           echo "${EC2_SSH_KEY}" > deploy_key.pem
           chmod 600 deploy_key.pem
