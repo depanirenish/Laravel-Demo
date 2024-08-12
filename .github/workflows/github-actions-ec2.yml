@@ -19,4 +19,22 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
       - name: Run tests
         run:
-          echo "Hello-4"
+          echo "Hello-4"          
+          
+          echo "${SSH_PRIVATE_KEY}" > deploy_key.pem
+          chmod 600 deploy_key.pem
+        
+          ssh -o StrictHostKeyChecking=no -i deploy_key.pem $REMOTE_USER@REMOTE_HOST << 'EOF'
+           cd /var/www/Laravel-Demo
+           git pull origin main
+           composer install --no-dev --prefer-dist --optimize-autoloader
+           php artisan migrate --force
+           php artisan config:cache
+           php artisan route:cache
+           php artisan view:cache
+           sudo systemctl restart httpd # or nginx
+          EOF
+
+    - name: Cleanup
+      run: rm deploy_key.pem
+      
