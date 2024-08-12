@@ -19,7 +19,7 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
       - name: Run tests
         run:
-          echo "Hello-5"          
+          echo "Hello-6"          
           
 
         
