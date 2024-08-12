@@ -21,16 +21,6 @@ jobs:
         run: |
           echo "Hello-7"
 
-          echo "key: ${{ secrets.SSH_PRIVATE_KEY }}"
-          
-          echo "${{ vars.SSH_PRIVATE_KEY }}"
-          
-          echo "${{ secrets.REMOTE_HOST }}"
-          
-          echo "$REMOTE_USER"
-
-          echo "$SSH_PRIVATE_KEY"
-          
           echo "$SSH_PRIVATE_KEY" > deploy_key.pem
           chmod 600 deploy_key.pem
           echo "Hello-8"
