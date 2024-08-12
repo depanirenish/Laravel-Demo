@@ -20,7 +20,7 @@ jobs:
       - name: Run tests
         run: |
           echo "Hello-7"      
-          echo "$SSH_PRIVATE_KEY" > deploy_key.pem
+          echo "$SSH_PRIVATE_KEY" | base64 -d > deploy_key.pem
           chmod 600 deploy_key.pem
           echo "H-8"
           sudo cat deploy_key.pem
