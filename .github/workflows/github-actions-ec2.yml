@@ -13,8 +13,8 @@ jobs:
       - name: Deploy to Server 1
         uses: easingthemes/ssh-deploy@main
         env:
-          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
-          HOST_DNS: ${{ secrets.HOST_DNS }}
-          USERNAME: ${{ secrets.USERNAME }}
-          TARGET_DIR: ${{ secrets.TARGET_DIR }}
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
         
