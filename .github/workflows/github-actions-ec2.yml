@@ -20,9 +20,9 @@ jobs:
       - name: Run tests
         run: |
           echo "Hello-7"
-          echo "${{ vars.EC2_SSH_KEY }}"
+          echo "${{ vars.SSH_PRIVATE_KEY }}"
           
-          echo "${{ secrets.HOST_DNS }}"
+          echo "${{ secrets.REMOTE_HOST }}"
           
           echo "$REMOTE_USER"
 
