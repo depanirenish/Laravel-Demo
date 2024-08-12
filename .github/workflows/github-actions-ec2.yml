@@ -20,8 +20,8 @@ jobs:
       - name: Run tests
         run: |
           echo "Hello-7"      
-          echo "${{ secrets.EC2_SSH_KEY }}" > deploy_key.pem
-          chmod 600 deploy_key.pem
+          echo "$SSH_PRIVATE_KEY" > deploy_key
+          chmod 600 deploy_key
            
            ssh -o StrictHostKeyChecking=no -i deploy_key.pem $REMOTE_USER@REMOTE_HOST << 'EOF'
            cd /var/www/Laravel-Demo
