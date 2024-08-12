@@ -1,4 +1,4 @@
-# Trigger deployment only on push to master branch
+llo# Trigger deployment only on push to master branch
 on:
   push:
     branches:
@@ -22,10 +22,11 @@ jobs:
           echo "Hello-7"      
           echo "$SSH_PRIVATE_KEY" > deploy_key.pem
           chmod 600 deploy_key.pem
-          echo "H-8"
+          echo "Hello-8"
           sudo cat deploy_key.pem
 
-          ssh -o StrictHostKeyChecking=no -i deploy_key.pem $REMOTE_USER@REMOTE_HOST << ' 
+          ssh -o StrictHostKeyChecking=no -i deploy_key.pem ${REMOTE_USER}@{REMOTE_HOST} ' 
+            
             cd /var/www/Laravel-Demo
             git pull origin main
             composer install --no-dev --prefer-dist --optimize-autoloader
