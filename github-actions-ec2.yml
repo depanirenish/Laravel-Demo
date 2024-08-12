@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - mv home /var/www/html
+      - cp home /var/www/html
 jobs:
     build:
       runs-on: ubuntu-latest
