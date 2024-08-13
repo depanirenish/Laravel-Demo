@@ -24,7 +24,7 @@ jobs:
 
           ssh -i "test.pem" ubuntu@ec2-54-82-107-162.compute-1.amazonaws.com '
 
-            echo "Hello-8"
+            echo "Hello-7.1"
             
             cd /var/www/Laravel-Demo
             git pull origin main
