@@ -38,15 +38,7 @@ jobs:
           echo "Hello-7.2"
           chmod 400 test.pem
           ssh -i "test.pem" ubuntu@ec2-54-82-107-162.compute-1.amazonaws.com << 'EOF'
-           cd /var/www/Laravel-Demo
-           git init
-           git pull origin main
-           composer install --no-dev --prefer-dist --optimize-autoloader
-           php artisan migrate --force
-           php artisan config:cache
-           php artisan route:cache
-           php artisan view:cache
-           sudo systemctl restart httpd # or nginx
+           cp -r /home/ubuntu/home/* /var/www/Laravel-Demo
           EOF
           
            
