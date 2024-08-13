@@ -45,7 +45,7 @@ jobs:
            php artisan route:cache
            php artisan view:cache
            sudo systemctl restart httpd # or nginx
-           echo "hello-9"
+           echo "hello-10"
           EOF
           
            
