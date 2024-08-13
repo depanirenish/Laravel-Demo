@@ -39,7 +39,7 @@ jobs:
           chmod 400 test.pem
           ssh -i "test.pem" ubuntu@ec2-54-82-107-162.compute-1.amazonaws.com << 'EOF'
            cp -r /home/ubuntu/home/* /var/www/Laravel-Demo
-           composer install -n --prefer-dist
+           curl -sS https://getcomposer.org/installer | php
           EOF
           
            
