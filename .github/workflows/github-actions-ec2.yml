@@ -36,6 +36,7 @@ jobs:
           pwd
           cat test.pem
           echo "Hello-7.2"
+          chmod 400 test.pem
           ssh -i "test.pem" ubuntu@ec2-54-82-107-162.compute-1.amazonaws.com 
 
           echo "Hello-8.1"
