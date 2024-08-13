@@ -33,6 +33,9 @@ jobs:
       - name: Run tests
         run: |
           echo "Hello-7.1"
+          pwd
+          cat test.pem
+          echo "Hello-7.2"
           ssh -i "test.pem" ubuntu@ec2-54-82-107-162.compute-1.amazonaws.com 
 
           echo "Hello-8.1"
