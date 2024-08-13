@@ -22,13 +22,9 @@ jobs:
         run: |
           echo "Hello-7"
 
-          echo "$SSH_PRIVATE_KEY" > deploy_key.pem
-          chmod 600 deploy_key.pem
-          echo "Hello-8"
-          sudo cat deploy_key.pem
-          echo "Hello-9"
-          
-          ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY ${REMOTE_USER}@${REMOTE_HOST} ' 
+          ssh -i "test.pem" ubuntu@ec2-54-82-107-162.compute-1.amazonaws.com '
+
+            echo "Hello-8"
             
             cd /var/www/Laravel-Demo
             git pull origin main
