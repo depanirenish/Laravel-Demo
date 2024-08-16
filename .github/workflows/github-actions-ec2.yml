@@ -44,5 +44,12 @@ jobs:
             echo "hello-8.1"
             sudo chown -R www-data:www-data /var/www/Laravel-Demo/storage /var/www/Laravel-Demo/bootstrap/cache
             sudo chmod -R 775 /var/www/Laravel-Demo/storage /var/www/Laravel-Demo/bootstrap/cache
+            composer install
+            cp .env.example .env
+            php artisan key:generate
+            php artisan cache:clear
+            php artisan route:cache
+            php artisan config:cache
+            php artisan view:cache
           EOF
   
