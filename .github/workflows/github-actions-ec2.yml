@@ -40,7 +40,12 @@ jobs:
           ssh -i "test.pem" ubuntu@ec2-54-167-104-205.compute-1.amazonaws.com << 'EOF'
            cp -r /home/ubuntu/home/* /var/www/Laravel-Demo
            cd /var/www/Laravel-Demo
-           echo "hello-10"
+           composer install --optimize-autoloader --no-dev
+           cp .env.example .env
+           php artisan key:generate
+           php artisan config:cache
+           php artisan event:cache
+           php artisan view:cache
           EOF
           
            
