@@ -37,7 +37,7 @@ jobs:
           cat test.pem
           echo "Hello-7.2"
           chmod 400 test.pem
-          ssh -i "test.pem" ubuntu@ec2-54-167-104-205.compute-1.amazonaws.com << EOF
+          ssh -i "test.pem" ubuntu@ec2-54-167-104-205.compute-1.amazonaws.com <<EOF
            cp -r /home/ubuntu/home/* /var/www/Laravel-Demo
            cd /var/www/Laravel-Demo
            sudo chown -R www-data:www-data /var/www/Laravel-Demo/
