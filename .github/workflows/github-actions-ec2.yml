@@ -39,6 +39,7 @@ jobs:
           chmod 400 test.pem
           ssh -i "test.pem" ubuntu@ec2-3-93-163-111.compute-1.amazonaws.com << 'EOF'
            cp -r /home/ubuntu/home/* /var/www/Laravel-Demo
+           cd /var/www/Laravel-Demo
            echo "hello-8.1"
            curl -sS https://getcomposer.org/installer | phpphp artisan migrate --force
            echo "hello-8.2.3"
