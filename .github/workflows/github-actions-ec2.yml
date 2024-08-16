@@ -40,7 +40,7 @@ jobs:
           ssh -i "test.pem" ubuntu@ec2-54-167-104-205.compute-1.amazonaws.com << 'EOF'
            cp -r /home/ubuntu/home/* /var/www/Laravel-Demo
            cd /var/www/Laravel-Demo
-           sudo chown -R www-data:ubuntu /var/www/Laravel-Demo/storage /var/www/Laravel-Demo/bootstrap/cache
+           sudo chown -R ubuntu:ubuntu /var/www/Laravel-Demo/storage /var/www/Laravel-Demo/bootstrap/cache
            sudo chmod -R 775 /var/www/Laravel-Demo/storage /var/www/Laravel-Demo/bootstrap/cache
            composer install --optimize-autoloader --no-dev
            cp .env.example .env
