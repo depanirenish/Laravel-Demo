@@ -41,8 +41,13 @@ jobs:
            cp -r /home/ubuntu/home/* /var/www/Laravel-Demo
            cd /var/www/Laravel-Demo
            echo "hello-8.1"
-           composer self-update
-           php artisan serve --port 8005
+           composer install
+           php artisan migrate --force
+           php artisan cache:clear
+           php artisan route:cache
+           php artisan config:cache
+           php artisan view:cache
+           # php artisan serve --port 8005
            sudo systemctl restart httpd # or nginx
            echo "hello-10"
           EOF
