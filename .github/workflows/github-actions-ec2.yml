@@ -41,7 +41,14 @@ jobs:
            cp -r /home/ubuntu/home/* /var/www/Laravel-Demo
            cd /var/www/Laravel-Demo
            sudo chown -R www-data:www-data /var/www/Laravel-Demo/storage /var/www/Laravel-Demo/bootstrap/cache
+           sudo chmod -R 775 /var/www/Laravel-Demo/storage /var/www/Laravel-Demo/bootstrap/cache
            composer install --optimize-autoloader --no-dev
+           cp .env.example .env
+           npm install
+           npm run build
+           php artisan key:generate
+           php artisan config:cache
+           php artisan view:cache
           EOF
           
            
