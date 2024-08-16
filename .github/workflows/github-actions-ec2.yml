@@ -41,6 +41,7 @@ jobs:
            cp -r /home/ubuntu/home/* /var/www/Laravel-Demo
            cd /var/www/Laravel-Demo
            echo "hello-8.1"
+           composer self-update
            curl -sS https://getcomposer.org/installer | phpphp artisan migrate --force
            echo "hello-8.2.3"
            php artisan config:cache
